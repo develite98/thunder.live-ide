@@ -1,4 +1,7 @@
 module.exports = {
+  rules: {
+    'no-magic-numbers': require('./override-rules/no-magic-numbers').default
+  },
   configs: {
     'strict-typescript': {
       plugins: ['@typescript-eslint'],
@@ -49,17 +52,18 @@ module.exports = {
             '@typescript-eslint/no-invalid-this': ['error', { capIsConstructor: true }],
             '@typescript-eslint/no-invalid-void-type': ['error', { allowInGenericTypeArguments: true, allowAsThisParameter: false }],
             '@typescript-eslint/no-loop-func': ['error'],
-            '@typescript-eslint/no-magic-numbers': [
+            '@typescript-eslint/no-magic-numbers': 'off',
+            '@thunder-angular/no-magic-numbers': [
               'error',
               {
                 ignore: [],
-                ignoreArrayIndexes: true,
+                ignoreArrayIndexes: false,
                 ignoreDefaultValues: true,
                 enforceConst: false,
                 detectObjects: false,
                 ignoreEnums: true,
                 ignoreNumericLiteralTypes: true,
-                ignoreReadonlyClassProperties: true
+                ignoreClassProperties: true
               }
             ],
             '@typescript-eslint/no-misused-new': ['error'],

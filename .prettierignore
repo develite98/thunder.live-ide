@@ -2,3 +2,4 @@
 /dist
 /coverage
 /libs/eslint/src/*
+/libs/eslint/lib/override-rules/*
