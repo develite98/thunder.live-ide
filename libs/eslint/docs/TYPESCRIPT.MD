@@ -23,7 +23,7 @@ Require that member overloads be consecutive
 
 ### [@typescript-eslint/await-thenable](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/await-thenable.md)
 
-[![](https://img.shields.io/badge/-TS%20CODE-lightgrey)](../../../libs/eslint/src/typescript/best-practices/await-thenable.ts)
+[![](https://img.shields.io/badge/-TS%20CODE-success)](../../../libs/eslint/src/typescript/best-practices/await-thenable.ts)
 ![category](https://img.shields.io/badge/category-Best%20Practices-yellowgreen)
 ![type](https://img.shields.io/badge/type-problem-blueviolet)
 ![recommended](https://img.shields.io/badge/recommended-error-ff69b4)
@@ -34,7 +34,7 @@ Disallows awaiting a value that is not a Thenable
 
 ```ts
 export async function foo(): Promise<void> {
-  await 'value'; // error here, await has no effect on this.
+  await 'value'; // <-- error, await has no effect on this.
 }
 ```
 
@@ -49,7 +49,7 @@ export async function bar(): Promise<void> {
 
 ### [@typescript-eslint/ban-ts-comment](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/ban-ts-comment.md)
 
-[![](https://img.shields.io/badge/-TS%20CODE-lightgrey)](../../../libs/eslint/src/typescript/best-practices/ban-ts-comment.ts)
+[![](https://img.shields.io/badge/-TS%20CODE-success)](../../../libs/eslint/src/typescript/best-practices/ban-ts-comment.ts)
 ![category](https://img.shields.io/badge/category-Best%20Practices-yellowgreen)
 ![type](https://img.shields.io/badge/type-problem-blueviolet)
 ![recommended](https://img.shields.io/badge/recommended-error-ff69b4)
@@ -81,13 +81,49 @@ Bans specific types from being used
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
+if (false) {
+  /*
+  @ts-expect-error
+   */
+  console.log('Unreachable code error');
+}
 
+if (false) {
+  /*
+  @ts-expect-error: TODO
+   */
+  console.log('Unreachable code error');
+}
+
+if (false) {
+  /*
+  @ts-nocheck: Unreachable code error
+  */
+  console.log('Unreachable code error');
+}
+
+if (false) {
+  /*
+  @ts-ignore: Unreachable code error
+  */
+  console.log('Unreachable code error');
+}
 ```
 
 ![GOOD](https://img.shields.io/badge/-GOOD-informational)
 
 ```ts
+if (false) {
+  /**
+   * @ts-expect-error: This is just an example of unreachable code, and need a comment with at least 6 characters.
+   */
+  console.log('Unreachable code error');
+}
 
+if (false) {
+  // Do not use ts-ignore/ts-nocheck to ensure compiler warns about unreachable code error
+  console.log('Unreachable code error');
+}
 ```
 
 ### [@typescript-eslint/class-literal-property-style](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/class-literal-property-style.md)

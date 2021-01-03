@@ -20,7 +20,7 @@ module.exports = {
                 'ts-ignore': true,
                 'ts-nocheck': true,
                 'ts-check': false,
-                minimumDescriptionLength: 3
+                minimumDescriptionLength: 6
               }
             ],
             '@typescript-eslint/ban-types': ['error', {}],
