@@ -59,28 +59,6 @@ Bans `@ts-<directive>` comments from being used or requires descriptions after d
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
-
-```
-
-![GOOD](https://img.shields.io/badge/-GOOD-informational)
-
-```ts
-
-```
-
-### [@typescript-eslint/ban-types](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/ban-types.md)
-
-[![](https://img.shields.io/badge/-TS%20CODE-lightgrey)](../../../libs/eslint/src/typescript/best-practices/ban-types.ts)
-![category](https://img.shields.io/badge/category-Best%20Practices-yellowgreen)
-![type](https://img.shields.io/badge/type-suggestion-blueviolet)
-![recommended](https://img.shields.io/badge/recommended-error-ff69b4)
-![fixable](https://img.shields.io/badge/-fixable-blue)
-
-Bans specific types from being used
-
-![BAD](https://img.shields.io/badge/-BAD-critical)
-
-```ts
 if (false) {
   /*
   @ts-expect-error
@@ -124,6 +102,28 @@ if (false) {
   // Do not use ts-ignore/ts-nocheck to ensure compiler warns about unreachable code error
   console.log('Unreachable code error');
 }
+```
+
+### [@typescript-eslint/ban-types](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/ban-types.md)
+
+[![](https://img.shields.io/badge/-TS%20CODE-lightgrey)](../../../libs/eslint/src/typescript/best-practices/ban-types.ts)
+![category](https://img.shields.io/badge/category-Best%20Practices-yellowgreen)
+![type](https://img.shields.io/badge/type-suggestion-blueviolet)
+![recommended](https://img.shields.io/badge/recommended-error-ff69b4)
+![fixable](https://img.shields.io/badge/-fixable-blue)
+
+Bans specific types from being used
+
+![BAD](https://img.shields.io/badge/-BAD-critical)
+
+```ts
+
+```
+
+![GOOD](https://img.shields.io/badge/-GOOD-informational)
+
+```ts
+
 ```
 
 ### [@typescript-eslint/class-literal-property-style](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/class-literal-property-style.md)
