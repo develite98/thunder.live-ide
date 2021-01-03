@@ -33,13 +33,18 @@ Disallows awaiting a value that is not a Thenable
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
-
+export async function foo(): Promise<void> {
+  await 'value'; // error here, await has no effect on this.
+}
 ```
 
 ![GOOD](https://img.shields.io/badge/-GOOD-informational)
 
 ```ts
-
+export async function bar(): Promise<void> {
+  await Promise.resolve('value');
+  await bar();
+}
 ```
 
 ### [@typescript-eslint/ban-ts-comment](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/ban-ts-comment.md)
