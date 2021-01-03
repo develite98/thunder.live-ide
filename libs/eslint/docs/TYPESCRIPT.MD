@@ -1150,13 +1150,26 @@ Require that all enum members be literal values to prevent unintended enum membe
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
-
+const outScopeVariable: number = 1;
+enum BadValueAssignment {
+  A = outScopeVariable, // <= Variable assignment
+  B = {}, // <= Object assignment
+  D = `A ${value} template literal string`, // <= Template literal
+  E = new Set(outScopeVariable, outScopeVariable), // <= Constructor in assignment
+  F = outScopeVariable + outScopeVariable // <= Expression assignment
+}
 ```
 
 ![GOOD](https://img.shields.io/badge/-GOOD-informational)
 
 ```ts
-
+enum GoodValueAssignment {
+  A = false,
+  B = 'TestStr', // A regular string
+  C = 4, // A number
+  D = null,
+  E = /some_regex/
+}
 ```
 
 ### [@typescript-eslint/prefer-namespace-keyword](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/prefer-namespace-keyword.md)
