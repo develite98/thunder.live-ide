@@ -1059,13 +1059,39 @@ Prefer initializing each enums member value
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
+enum BadExample {
+  FirstValue, // <= Must initializing value
+  SecondValue // <= Must initializing value
+}
 
+enum BadColor {
+  Green = 'Green',
+  Red // <= Must initializing value
+}
+
+enum BadDirection {
+  Up, // <= Must initializing value
+  Down = 2
+}
 ```
 
 ![GOOD](https://img.shields.io/badge/-GOOD-informational)
 
 ```ts
+enum GoodExample {
+  FirstValue = 'FirstValue',
+  SecondValue = 'SecondValue'
+}
 
+enum GoodColor {
+  Green = 'Green',
+  Red = 'Red'
+}
+
+enum GoodDirection {
+  Up = 1,
+  Down = 2
+}
 ```
 
 ### [@typescript-eslint/prefer-function-type](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/prefer-function-type.md)
