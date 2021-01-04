@@ -1203,16 +1203,68 @@ Require the use of the `namespace` keyword instead of the `module` keyword to de
 
 Enforce the usage of the nullish coalescing operator instead of logical chaining
 
+Nullish coalescing: "??" => Coalesces ONLY if original value is NULL or UNDEFINED
+Logical/Operator coalescing: "||" => Coalesces on any falsy value (null, undefined, false, 0, NaN, '')
+
+```ts
+const emptyString: string = '';
+```
+
 ![BAD](https://img.shields.io/badge/-BAD-critical)
 
 ```ts
-
+const logicalChaining: string = emptyString || 'Unsafe value';
+console.log(logicalChaining); // result is 'Unsafe value'
 ```
 
 ![GOOD](https://img.shields.io/badge/-GOOD-informational)
 
 ```ts
+const nullishCoalescing: string = emptyString ?? 'Unsafe value';
+console.log(nullishCoalescing); // result is ''
+```
 
+Option:
+
+- "ignoreConditionalTests":false, (default is true)
+
+- "ignoreMixedLogicalExpressions":false (default is true)
+
+```ts
+const firstString: string = '';
+const secondString: string = '';
+const thirdString: string = '';
+```
+
+![BAD](https://img.shields.io/badge/-BAD-critical)
+
+```ts
+if (firstString || secondString) {
+  // this if condition is equivalent to:
+  // const c = firstVariable || secondVariable;
+  // if (c) {..}
+  console.log('Unsafe');
+}
+
+if (firstString || secondString || thirdString) {
+  // this if condition is equivalent to:
+  // const c = secondVariable || thirdVariable;
+  // const d = firstVariable || c
+  // if (d) {..}
+  console.log('Unsafe');
+}
+```
+
+![GOOD](https://img.shields.io/badge/-GOOD-informational)
+
+```ts
+if (firstString ?? secondString) {
+  console.log('Safe');
+}
+
+if (firstString ?? secondString ?? thirdString) {
+  console.log('Safe');
+}
 ```
 
 ### [@typescript-eslint/prefer-optional-chain](https://github.com/typescript-eslint/typescript-eslint/blob/v4.10.0/packages/eslint-plugin/docs/rules/prefer-optional-chain.md)

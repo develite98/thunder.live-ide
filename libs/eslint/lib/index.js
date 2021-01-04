@@ -97,7 +97,7 @@ module.exports = {
             '@typescript-eslint/prefer-namespace-keyword': ['error'],
             '@typescript-eslint/prefer-nullish-coalescing': [
               'error',
-              { ignoreConditionalTests: true, ignoreMixedLogicalExpressions: true }
+              { ignoreConditionalTests: false, ignoreMixedLogicalExpressions: false }
             ],
             '@typescript-eslint/prefer-optional-chain': ['error'],
             '@typescript-eslint/prefer-readonly': ['error', { onlyInlineLambdas: false }],
